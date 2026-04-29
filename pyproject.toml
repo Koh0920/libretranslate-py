@@ -1,0 +1,8 @@
+[project]
+name = "libretranslate-py-capsule"
+version = "1.9.5"
+description = "LibreTranslate ato capsule"
+requires-python = ">=3.11,<3.12"
+dependencies = [
+    "libretranslate==1.9.5",
+]

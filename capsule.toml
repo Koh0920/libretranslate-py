@@ -1,0 +1,44 @@
+# capsule.toml for the Koh0920/libretranslate-py public fork.
+#
+# Authoring source. Faithful transcription of the proven manifest at
+# ~/.ato/runtimes/koh0920/libretranslate-py/1.9.6_69cf8066eabe/capsule.toml,
+# minus the [distribution] / chunk_list blocks (pack-time output).
+#
+# After forking github.com/LibreTranslate/LibreTranslate to
+# github.com/Koh0920/libretranslate-py, commit this file at the repo
+# root on the default branch. The repo must contain a top-level
+# `start.py` that invokes the upstream entrypoint (uv-based bootstrap
+# in the local working copy).
+#
+# Known risk: in prior conversation the user hit "session start hangs"
+# for libretranslate-py — runtime dir populated via uv cache but no
+# python in `ps` and no session log file. That symptom MUST be retested
+# against the public fork before publicising the URL. If it reproduces,
+# defer this repo and ship flatnotes + browser-daw first.
+schema_version = "0.3"
+name = "libretranslate-py"
+version = "1.9.6"
+type = "app"
+default_target = "app"
+
+[metadata]
+display_name = "LibreTranslate"
+description  = "Free and open-source self-hosted translation API. Fork of LibreTranslate/LibreTranslate with capsule.toml."
+author       = "Koh0920"
+tags         = ["translation", "ml", "argos", "self-hosted"]
+
+[targets.app]
+runtime         = "source"
+driver          = "python"
+language        = "python"
+runtime_version = "3.11"
+port            = 5001
+run             = "start.py"
+
+[network]
+egress_allow = [
+  "github.com",
+  "objects.githubusercontent.com",
+  "raw.githubusercontent.com",
+  "www.argosopentech.com",
+]
