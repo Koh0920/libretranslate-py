@@ -27,6 +27,9 @@ description  = "Free and open-source self-hosted translation API. Fork of LibreT
 author       = "Koh0920"
 tags         = ["translation", "ml", "argos", "self-hosted"]
 
+[targets]
+startup_timeout = 300
+
 [targets.app]
 runtime         = "source"
 driver          = "python"
